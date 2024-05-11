@@ -1,0 +1,17 @@
+{
+  "name": "anji-project",
+  "version": "1.0.0",
+  "description": "Website for discorvering food in Da Nang, Viet Na,",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}
