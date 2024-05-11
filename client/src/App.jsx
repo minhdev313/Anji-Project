@@ -1,4 +1,4 @@
-import { BrowserRouter, Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import ManageUser from "./pages/ManageUser";
 import Policies from "./pages/Policies";
@@ -15,17 +15,14 @@ export default function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" component={Home} />
-        <Route path="/manage-user" component={ManageUser} />
-
-        <Route path="/policies" component={Policies} />
-
-        <Route path="/profile" component={Profile} />
-
-        <Route path="/signin" component={Signin} />
-        <Route path="/random" component={Random} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/aboutus" component={Aboutus} />
+        <Route path="/" element={<Home />} />
+        <Route path="/manage-user" element={<ManageUser />} />
+        <Route path="/policies" element={<Policies />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/random" element={<Random />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/aboutus" element={<Aboutus />} />
       </Routes>
       <Footer />
     </BrowserRouter>

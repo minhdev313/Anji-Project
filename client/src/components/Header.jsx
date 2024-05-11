@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <header className="bg-white lg:py-8">
@@ -25,6 +25,7 @@ export default function Header() {
               {" "}
               Home{" "}
             </a>
+
             <a
               href="/aboutus"
               title=""
@@ -46,7 +47,7 @@ export default function Header() {
 
           <div className="hidden lg:flex lg:items-center lg:space-x-10">
             <a
-              href="#"
+              href="/signup"
               title=""
               className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
             >
@@ -54,7 +55,7 @@ export default function Header() {
               Sign up{" "}
             </a>
             <a
-              href="#"
+              href="/signin"
               title=""
               className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
             >
@@ -64,39 +65,14 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* xs to lg */}
         <nav className="flex flex-col py-4 space-y-2 lg:hidden">
           <a
-            href="#"
+            href=""
             title=""
             className="py-2 text-base font-medium text-black transition-all duration-200 focus:text-blue-600"
           >
             {" "}
-            Features{" "}
-          </a>
-          <a
-            href="#"
-            title=""
-            className="py-2 text-base font-medium text-black transition-all duration-200 focus:text-blue-600"
-          >
-            {" "}
-            Solutions{" "}
-          </a>
-          <a
-            href="#"
-            title=""
-            className="py-2 text-base font-medium text-black transition-all duration-200 focus:text-blue-600"
-          >
-            {" "}
-            Resources{" "}
-          </a>
-          <a
-            href="#"
-            title=""
-            className="py-2 text-base font-medium text-black transition-all duration-200 focus:text-blue-600"
-          >
-            {" "}
-            Pricing{" "}
+            Profile{" "}
           </a>
         </nav>
       </div>
