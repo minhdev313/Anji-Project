@@ -9,6 +9,7 @@ import Random from "./pages/Random";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Aboutus from "./pages/Aboutus";
+import Contactus from "./pages/Contactus";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/manage-user" element={<ManageUser />} />
+        <Route path="/contactus" element={<Contactus />} />
         <Route path="/policies" element={<Policies />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/signin" element={<Signin />} />

@@ -9,7 +9,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             <a href="/" title="" className="flex">
               <img
-                className="w-auto h-15 lg:h-10"
+                className="w-auto h-5 lg:h-10"
                 src="https://up-anh.vi-vn.vn/img/1715431808_26c2728e570b20053d6c93b47d9cd087.png"
                 alt=""
               />
@@ -33,6 +33,14 @@ export default function Header() {
             >
               {" "}
               About us{" "}
+            </a>
+            <a
+              href="/contactus"
+              title=""
+              className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+            >
+              {" "}
+              Contact us{" "}
             </a>
 
             <a
@@ -67,12 +75,28 @@ export default function Header() {
 
         <nav className="flex flex-col py-4 space-y-2 lg:hidden">
           <a
-            href=""
+            href="/random"
             title=""
-            className="py-2 text-base font-medium text-black transition-all duration-200 focus:text-blue-600"
+            className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600 underline"
           >
             {" "}
-            Profile{" "}
+            Random !{" "}
+          </a>
+          <a
+            href="/signup"
+            title=""
+            className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+          >
+            {" "}
+            Sign up{" "}
+          </a>
+          <a
+            href="/signin"
+            title=""
+            className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+          >
+            {" "}
+            Sign in{" "}
           </a>
         </nav>
       </div>
