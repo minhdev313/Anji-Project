@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Aboutus from "./pages/Aboutus";
 import Contactus from "./pages/Contactus";
+import PrivateRoute from "./components/PrivateRoute";
 
 export default function App() {
   return (
@@ -20,10 +21,12 @@ export default function App() {
         <Route path="/manage-user" element={<ManageUser />} />
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/policies" element={<Policies />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/signin" element={<Signin />} />
-        <Route path="/random" element={<Random />} />
         <Route path="/signup" element={<Signup />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route>
+        <Route path="/random" element={<Random />} />
         <Route path="/aboutus" element={<Aboutus />} />
       </Routes>
       <Footer />

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 export default function Header() {
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <header className="bg-white lg:py-8">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -63,13 +65,16 @@ export default function Header() {
               Sign up{" "}
             </a>
             <a
-              href="/signin"
+              href="/profile"
               title=""
               className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
             >
-              {" "}
-              Sign in{" "}
-            </a>
+              {currentUser ? (
+                <img src={currentUser.profilePicture} alt='profile' className='h-7 w-7 rounded-full object-cover' />
+              ) : (
+                <span>Sign in</span>
+              )}
+            </a>  
           </div>
         </nav>
 
