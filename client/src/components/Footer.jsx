@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
             <img
               className="w-auto h-20"
-              src="https://up-anh.vi-vn.vn/img/1715431808_26c2728e570b20053d6c93b47d9cd087.png"
+              src="https://i.pinimg.com/736x/7f/1a/69/7f1a69a7fa1d96b28eb22620960da2be.jpg"
               alt=""
             />
             <p className="text-base leading-relaxed text-gray-600 mt-7">

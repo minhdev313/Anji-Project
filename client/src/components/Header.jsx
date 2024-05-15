@@ -14,7 +14,7 @@ export default function Header() {
             <Link to="/" className="flex">
               <img
                 className="w-auto h-5 lg:h-10"
-                src="https://up-anh.vi-vn.vn/img/1715431808_26c2728e570b20053d6c93b47d9cd087.png"
+                src="https://i.pinimg.com/736x/7f/1a/69/7f1a69a7fa1d96b28eb22620960da2be.jpg"
                 alt=""
               />
             </Link>
