@@ -11,10 +11,10 @@ export default function Footer() {
               src="https://i.pinimg.com/736x/7f/1a/69/7f1a69a7fa1d96b28eb22620960da2be.jpg"
               alt=""
             />
-            <p className="text-base leading-relaxed text-gray-600 mt-7">
+            {/* <p className="text-base leading-relaxed text-gray-600 mt-7">
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis
               enim velit mollit.
-            </p>
+            </p> */}
             <ul className="flex items-center space-x-3 mt-9">
               <li>
                 <a

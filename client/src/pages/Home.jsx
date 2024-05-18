@@ -8,11 +8,11 @@ export default function Home() {
           <div>
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
               Hey 👋 We are <br className="block sm:hidden" />
-              <h2 className="text-red">Anji</h2>
+              Anji
             </h2>
             <p className="max-w-lg mt-3 text-xl leading-relaxed text-gray-600 md:mt-8">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis
-              enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+              Let us spice up your dining experience with personalized and unexpected culinary suggestions. Explore a
+              world of flavors and make every meal an exciting adventure with ANJI
             </p>
 
             <p className="mt-4 text-xl text-gray-600 md:mt-8">
@@ -27,7 +27,7 @@ export default function Home() {
                 title=""
                 className="transition-all duration-200 text-sky-500 hover:text-sky-600 hover:underline"
               >
-                Twitter
+                FanPage
               </a>
             </p>
           </div>
@@ -66,6 +66,7 @@ export default function Home() {
           </div>
         </section>
       </div>
+
       <div>
         <section className="py-10 bg-white sm:py-16 lg:py-24">
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -184,7 +185,7 @@ export default function Home() {
                   <div className="overflow-hidden aspect-w-3 aspect-h-4">
                     <img
                       className="object-cover w-full h-full scale-150"
-                      src="https://cdn.rareblocks.xyz/collection/celebration/images/features/3/man-woman-discussing.jpg"
+                      src="https://i.pinimg.com/736x/55/0a/75/550a7584d10a441df4ce4b3db148e46d.jpg"
                       alt=""
                     />
                   </div>
@@ -208,13 +209,13 @@ export default function Home() {
                         </svg>
                         <span className="block mt-3 text-xl font-bold text-black sm:mt-6 sm:text-4xl lg:text-5xl">
                           {" "}
-                          2,984{" "}
+                          3000{" "}
                         </span>
                         <span className="block mt-2 text-sm font-medium leading-snug text-amber-900 sm:text-base">
                           {" "}
-                          Customer chat
+                          Dishes are
                           <br />
-                          served on July{" "}
+                          updated continuously{" "}
                         </span>
                       </div>
                     </div>
@@ -224,11 +225,12 @@ export default function Home() {
 
               <div className="md:order-1">
                 <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-                  Grow business with Celebration.
+                  Discover the Flavors of Our Local Cuisine
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis
-                  enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                  From savory street food to exquisite gourmet dishes, our local fare offers a culinary adventure like
+                  no other. Experience the vibrant spices, fresh ingredients, and time-honored recipes that make our
+                  food a true delight for the senses.
                 </p>
 
                 <a
@@ -253,7 +255,7 @@ export default function Home() {
                 <div className="overflow-hidden aspect-w-3 aspect-h-4">
                   <img
                     className="object-cover object-top origin-top scale-150"
-                    src="https://cdn.rareblocks.xyz/collection/celebration/images/features/2/team-work.jpg"
+                    src="https://i.pinimg.com/564x/64/38/02/6438023d7dcbc0f509ea71e8624fc20d.jpg"
                     alt=""
                   />
                 </div>
@@ -262,7 +264,7 @@ export default function Home() {
                   <div className="h-full overflow-hidden aspect-w-3 aspect-h-4">
                     <img
                       className="object-cover scale-150 lg:origin-bottom-right"
-                      src="https://cdn.rareblocks.xyz/collection/celebration/images/features/2/woman-working-on-laptop.jpg"
+                      src="https://i.pinimg.com/564x/f2/bb/49/f2bb49eaf96afedf59f39fc508650364.jpg"
                       alt=""
                     />
                   </div>
@@ -295,11 +297,12 @@ export default function Home() {
 
               <div className="flex flex-col items-start xl:px-16">
                 <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-                  Grow business with Celebration.
+                  Unexpected Delights Await Your Taste Buds.
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis
-                  enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                  Prepare to be pleasantly surprised by the unexpected delights of our culinary offerings. Each dish is
+                  crafted to not only satisfy your hunger but also to tantalize your taste buds with unique and
+                  delightful flavors.
                 </p>
 
                 <a
