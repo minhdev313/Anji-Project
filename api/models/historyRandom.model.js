@@ -11,10 +11,6 @@ const historyOfRandomSchema = new mongoose.Schema({
     required: true,
     ref: 'Dish' // Reference the 'Dish' model for relationships
   },
-  created_at: {
-    type: Date,
-    default: Date.now // Set default creation time to current timestamp
-  },
 }, { timestamps: false }); // Don't add default timestamps, we have `created_at`
 
 const HistoryOfRandom = mongoose.model('HistoryOfRandom', historyOfRandomSchema);

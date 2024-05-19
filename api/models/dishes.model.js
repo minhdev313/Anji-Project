@@ -35,14 +35,6 @@ const dishSchema = new Schema({
     type: Boolean,
     default: true // Optional: Set default availability to true
   },
-  created_at: {
-    type: Date,
-    default: Date.now // Set default creation time to current timestamp
-  },
-  updated_at: {
-    type: Date,
-    default: Date.now // Set default update time to current timestamp
-  }
 }, { timestamps: true }); // Enable automatic timestamps updates
 
 // Create the Dish model

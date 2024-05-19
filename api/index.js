@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from './routes/user.routes.js';
 import authRoutes from './routes/auth.route.js';
+import dishRoutes from './routes/dishes.route.js';
+import restaurantRoutes from './routes/restaurant.route.js';
+import categoryRoutes from './routes/category.route.js';
+
 import cookieParser from "cookie-parser";
 import path from "path";
 dotenv.config();
@@ -17,11 +21,11 @@ const __dirname = path.resolve();
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'client', 'dist')));
+// app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+// });
 
 app.use(express.json());
 
@@ -29,6 +33,10 @@ app.use(cookieParser());
 
 app.use('/api/user', userRoutes);
 app.use("/api/auth", authRoutes);
+app.use('/api/dishes', dishRoutes);
+app.use("/api/category", categoryRoutes);
+app.use("/api/restaurant", restaurantRoutes);
+
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;

@@ -10,14 +10,6 @@ const categorySchema = new Schema({
     type: String,
     trim: true // Optional: Remove leading/trailing whitespace
   },
-  created_at: {
-    type: Date,
-    default: Date.now // Set default creation time to current timestamp
-  },
-  updated_at: {
-    type: Date,
-    default: Date.now // Set default update time to current timestamp
-  }
 }, { timestamps: true }); // Enable automatic timestamps updates
 
 // Create the Category model

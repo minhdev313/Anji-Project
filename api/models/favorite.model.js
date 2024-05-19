@@ -11,10 +11,6 @@ const favouritesSchema = new mongoose.Schema({
     required: true,
     ref: 'Dish' // Reference the 'Dish' model for relationships
   },
-  created_at: {
-    type: Date,
-    default: Date.now // Set default creation time to current timestamp
-  },
   notes: { type: String }, // Optional: User's notes about the favorite dish
   rating: { type: Number, min: 1, max: 5 } // Optional: User's rating for the dish (1-5)
 }, { timestamps: false }); // Don't add default timestamps, we have `created_at`
