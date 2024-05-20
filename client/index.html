@@ -4,10 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anji</title>
+    <link rel="icon" type="image/png" href="/public/vite.svg" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      const typebotInitScript = document.createElement("script");
+      typebotInitScript.type = "module";
+      typebotInitScript.innerHTML = `import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.2/dist/web.js'
+
+Typebot.initBubble({
+  typebot: "faq-anji-izhpvvk",
+  theme: { button: { backgroundColor: "#DE8031" } },
+});
+`;
+      document.body.append(typebotInitScript);
+    </script>
   </body>
 </html>
