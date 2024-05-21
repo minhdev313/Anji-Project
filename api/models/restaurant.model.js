@@ -1,39 +1,40 @@
-import { Schema, model } from 'mongoose'; // Import required classes
+import { Schema, model } from "mongoose"; // Import required classes
 
-const restaurantSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true // Optional: Remove leading/trailing whitespace
+const restaurantSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true, // Optional: Remove leading/trailing whitespace
+    },
+    address: {
+      type: String,
+      required: true,
+      trim: true, // Optional: Remove leading/trailing whitespace
+    },
+    link_frame: {
+      type: String,
+    },
+    district: {
+      type: String,
+      required: true,
+      trim: true, // Optional: Remove leading/trailing whitespace
+    },
+    phone_number: {
+      type: String,
+      required: true,
+      trim: true, // Optional: Remove leading/trailing whitespace
+    },
+
+    working_hours: {
+      type: String,
+      trim: true, // Optional: Remove leading/trailing whitespace
+    },
   },
-  address: {
-    type: String,
-    required: true,
-    trim: true // Optional: Remove leading/trailing whitespace
-  },
-  link_frame: {
-    type: String,
-  },
-  district: {
-    type: String,
-    required: true,
-    trim: true // Optional: Remove leading/trailing whitespace
-  },
-  phone_number: {
-    type: String,
-    required: true,
-    trim: true // Optional: Remove leading/trailing whitespace
-  },
-  dishes: [ // Array of references to Dish models
-    { type: Schema.Types.ObjectId, ref: 'Dish' }
-  ],
-  working_hours: {
-    type: String,
-    trim: true // Optional: Remove leading/trailing whitespace
-  },
-}, { timestamps: true }); // Enable automatic timestamps updates
+  { timestamps: true }
+); // Enable automatic timestamps updates
 
 // Create the Restaurant model
-const Restaurant = model('Restaurant', restaurantSchema);
+const Restaurant = model("Restaurant", restaurantSchema);
 
 export default Restaurant; // Export the Restaurant model

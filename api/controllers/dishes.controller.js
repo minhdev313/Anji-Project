@@ -34,11 +34,13 @@ export const createDish = async (req, res, next) => {
   // Validate data (implement your validation logic here)
 
   try {
+    // Validate category
     const category = await Category.findById(category_id);
     if (!category) {
       return res.status(400).json({ message: "Invalid category ID!" });
     }
 
+    // Validate restaurant
     const restaurant = await Restaurant.findById(restaurant_id);
     if (!restaurant) {
       return res.status(400).json({ message: "Invalid restaurant ID!" });
@@ -69,14 +71,18 @@ export const updateDish = async (req, res, next) => {
   // Validate data (implement your validation logic here)
 
   try {
-    const dish = await Dish.findByIdAndUpdate(id, {
-      name,
-      description,
-      price,
-      category_id,
-      image,
-      ingredients,
-    });
+    const dish = await Dish.findByIdAndUpdate(
+      id,
+      {
+        name,
+        description,
+        price,
+        category_id,
+        image,
+        ingredients,
+      },
+      { new: true } // This option returns the updated document
+    ).populate("category_id restaurant_id");
 
     if (!dish) {
       return res.status(404).json({ message: "Dish not found!" });
@@ -104,6 +110,8 @@ export const deleteDish = async (req, res, next) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+// Get random dishes by category ID
 export const getRandomDishes = async (req, res, next) => {
   const { categoryId } = req.params;
   const { count } = req.query; // Optional query parameter to specify number of random dishes
@@ -116,7 +124,7 @@ export const getRandomDishes = async (req, res, next) => {
     }
 
     // Find dishes by category
-    const dishes = await Dish.find({ category_id: categoryId });
+    const dishes = await Dish.find({ category_id: categoryId }).populate("category_id restaurant_id");
 
     if (dishes.length === 0) {
       return res.status(404).json({ message: "No dishes found in this category!" });
