@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Random() {
   const [formData, setFormData] = useState({
@@ -6,6 +6,8 @@ export default function Random() {
     select2: "",
     select3: "",
   });
+  const [dishes, setDishes] = useState([]);
+  const [showDishes, setShowDishes] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -14,10 +16,19 @@ export default function Random() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
-    // Here you can send the formData to your backend or handle it as needed
+
+    // Fetch dishes after form submission
+    try {
+      const response = await fetch("/api/dishes"); // Replace with your API endpoint
+      const data = await response.json();
+      setDishes(data);
+      setShowDishes(true);
+    } catch (error) {
+      console.error("Error fetching dishes:", error);
+    }
   };
 
   return (
@@ -80,6 +91,27 @@ export default function Random() {
       >
         Submit
       </button>
+
+      {showDishes && (
+        <div className="mt-6">
+          <h2 className="text-xl font-semibold mb-4">Dishes</h2>
+          {dishes.length > 0 ? (
+            <ul>
+              {dishes.map((dish) => (
+                <li key={dish._id} className="mb-2 p-2 border border-gray-300 rounded-lg">
+                  <h3 className="text-lg font-medium">{dish.name}</h3>
+                  <p>{dish.description}</p>
+                  <p>Price: {dish.price}</p>
+                  <p>Category: {dish.category_id.name}</p>
+                  <p>Restaurant: {dish.restaurant_id.name}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No dishes found.</p>
+          )}
+        </div>
+      )}
     </form>
   );
 }
