@@ -25,6 +25,10 @@ const restaurantSchema = new Schema(
       required: true,
       trim: true, // Optional: Remove leading/trailing whitespace
     },
+    dishes: {
+      type: [Schema.Types.ObjectId],
+      ref: "Dish", // Reference the 'Dish' model for relationships
+    },
 
     working_hours: {
       type: String,
