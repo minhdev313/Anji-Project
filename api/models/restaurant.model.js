@@ -1,41 +1,40 @@
-import { Schema, model } from "mongoose";
+import { Schema, model } from "mongoose"; // Import required classes
 
 const restaurantSchema = new Schema(
   {
     name: {
       type: String,
       required: true,
-      trim: true,
+      trim: true, // Optional: Remove leading/trailing whitespace
     },
     address: {
       type: String,
       required: true,
-      trim: true,
+      trim: true, // Optional: Remove leading/trailing whitespace
+    },
+    link_frame: {
+      type: String,
     },
     district: {
       type: String,
       required: true,
-      trim: true,
+      trim: true, // Optional: Remove leading/trailing whitespace
     },
     phone_number: {
       type: String,
       required: true,
-      trim: true,
+      trim: true, // Optional: Remove leading/trailing whitespace
     },
+
     working_hours: {
       type: String,
-      required: true,
-      trim: true,
+      trim: true, // Optional: Remove leading/trailing whitespace
     },
-    dishes: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Dish",
-      },
-    ],
   },
   { timestamps: true }
-);
+); // Enable automatic timestamps updates
 
+// Create the Restaurant model
 const Restaurant = model("Restaurant", restaurantSchema);
-export default Restaurant;
+
+export default Restaurant; // Export the Restaurant model
