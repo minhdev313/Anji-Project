@@ -4,27 +4,27 @@ const restaurantSchema = new Schema(
   {
     name: {
       type: String,
-      required: false,
+      required: true,
       trim: true,
     },
     address: {
       type: String,
-      required: false,
+      required: true,
       trim: true,
     },
     district: {
       type: String,
-      required: false,
+      required: true,
       trim: true,
     },
     phone_number: {
       type: String,
-      required: false,
+      required: true,
       trim: true,
     },
     working_hours: {
       type: String,
-      required: false,
+      required: true,
       trim: true,
     },
     dishes: [
