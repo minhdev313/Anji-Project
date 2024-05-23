@@ -111,7 +111,6 @@ export const deleteDish = async (req, res, next) => {
   }
 };
 
-// Get random dishes by category ID
 export const getRandomDish = async (req, res) => {
   try {
     const { category1, category2, category3 } = req.query;
@@ -130,16 +129,17 @@ export const getRandomDish = async (req, res) => {
       if (randomSuggestion.length) {
         const suggestion = await Dish.findById(randomSuggestion[0]._id).populate("restaurant_id");
         return res.status(404).json({
-          message: "Không tìm thấy món ăn phù hợp. Dưới đây là một gợi ý:",
+          message: "No matching dish found. Here is a suggestion:",
           suggestion,
         });
       } else {
-        return res.status(404).json({ message: "Không tìm thấy món ăn phù hợp và không có gợi ý nào." });
+        return res.status(404).json({ message: "No matching dish found and no suggestions available." });
       }
     }
 
-    // Return matched dishes
-    res.json(dishes);
+    // Return a single random dish
+    const randomIndex = Math.floor(Math.random() * dishes.length);
+    res.json([dishes[randomIndex]]);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
