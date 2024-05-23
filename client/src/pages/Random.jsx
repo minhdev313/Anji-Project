@@ -8,6 +8,7 @@ export default function Random() {
   });
   const [dishes, setDishes] = useState([]);
   const [error, setError] = useState(null);
+  const [suggestion, setSuggestion] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -28,11 +29,16 @@ export default function Random() {
 
       if (response.ok) {
         setDishes(data);
+        setError(null);
+        setSuggestion(null);
       } else {
-        setError(data.message || "Something went wrong");
+        setDishes([]);
+        setError(data.message);
+        setSuggestion(data.suggestion);
       }
     } catch (err) {
       setError(err.message);
+      setSuggestion(null);
     }
   };
 
@@ -51,8 +57,8 @@ export default function Random() {
               className="block w-full p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">Chọn một tùy chỉnh</option>
-              <option value="Món Nước">Món Nước</option>
-              <option value="Món Khô">Món Khô</option>
+              <option value="664b31917170b98018eddf49">Món Nước</option>
+              <option value="664b31757170b98018eddf47">Món Khô</option>
             </select>
           </div>
           <div className="w-1/3">
@@ -66,8 +72,8 @@ export default function Random() {
               className="block w-full p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">Chọn một tùy chỉnh</option>
-              <option value="Món Chay">Món Chay</option>
-              <option value="Món Mặn">Món Mặn</option>
+              <option value="664b32707170b98018eddf4c">Món Chay</option>
+              <option value="664b32857170b98018eddf4e">Món Mặn</option>
             </select>
           </div>
           <div className="w-1/3">
@@ -81,11 +87,11 @@ export default function Random() {
               className="block w-full p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">Chọn một tùy chỉnh</option>
-              <option value="Món Chiên">Món Chiên</option>
-              <option value="Không Dầu">Không Dầu</option>
-              <option value="Món Nướng">Món Nướng</option>
-              <option value="Món Hấp">Món Hấp</option>
-              <option value="Món Luộc">Món Luộc</option>
+              <option value="664b357c7170b98018eddf50">Món Chiên</option>
+              <option value="664b359a7170b98018eddf52">Không Dầu</option>
+              <option value="664b36017170b98018eddf54">Món Nướng</option>
+              <option value="664b373e7170b98018eddf56">Món Hấp</option>
+              <option value="664b374c7170b98018eddf58">Món Luộc</option>
             </select>
           </div>
         </div>
@@ -93,24 +99,46 @@ export default function Random() {
           type="submit"
           className="w-full mt-4 p-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
         >
-          Submit
+          Tìm món ăn ngay
         </button>
       </form>
       {error && <p className="text-red-500 mt-4">{error}</p>}
       {dishes.length > 0 && (
         <div className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4">Random Dishes</h2>
           <ul className="space-y-4">
             {dishes.map((dish) => (
-              <li key={dish._id} className="p-4 bg-gray-100 rounded-lg shadow">
-                <h3 className="text-xl font-semibold">{dish.name}</h3>
-                <p>{dish.description}</p>
-                <p className="text-sm text-gray-500">Category: {dish.category_id.name}</p>
-                <p className="text-sm text-gray-500">Restaurant: {dish.restaurant_id.name}</p>
-                <p className="text-sm text-gray-500">Price: ${dish.price}</p>
+              <li key={dish._id} className="p-4 bg-gray-100 rounded-lg shadow flex space-x-4">
+                {dish.image && <img src={dish.image} alt={dish.name} className="w-24 h-24 object-cover rounded-lg" />}
+                <div>
+                  <h3 className="text-xl font-semibold">{dish.name}</h3>
+                  <p>{dish.description}</p>
+                  <p className="text-sm">Nhà Hàng: {dish.restaurant_id.name}</p>
+                  <p className="text-sm">Địa Chỉ: {dish.restaurant_id.address}</p>
+                  <p className="text-sm">Thành phần: {dish.ingredients.join(", ")}</p>
+                  <p className="text-sm">Giá tiền: {dish.price} VND</p>
+                </div>
               </li>
             ))}
           </ul>
+        </div>
+      )}
+      {suggestion && (
+        <div className="mt-8">
+          <h2 className="text-2xl font-semibold mb-4">Gợi Ý Món Ăn</h2>
+          <div className="p-4 bg-gray-100 rounded-lg shadow flex space-x-4">
+            {suggestion.image && (
+              <img src={suggestion.image} alt={suggestion.name} className="w-24 h-24 object-cover rounded-lg" />
+            )}
+            <div>
+              <h3 className="text-xl font-semibold">{suggestion.name}</h3>
+              <p>{suggestion.description}</p>
+
+              <p className="text-sm">Nhà Hàng: {suggestion.restaurant_id.name}</p>
+              <p className="text-sm">Địa Chỉ: {suggestion.restaurant_id.address}</p>
+              <p className="text-sm">Thành phần: {suggestion.ingredients.join(", ")}</p>
+              <p className="text-sm">Giá tiền: {suggestion.price} VND</p>
+            </div>
+          </div>
         </div>
       )}
     </div>
