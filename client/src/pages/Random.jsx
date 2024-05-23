@@ -99,7 +99,7 @@ export default function Random() {
           type="submit"
           className="w-full mt-4 p-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
         >
-          Tìm món ăn ngay
+          Submit
         </button>
       </form>
       {error && <p className="text-red-500 mt-4">{error}</p>}
@@ -107,15 +107,15 @@ export default function Random() {
         <div className="mt-8">
           <ul className="space-y-4">
             {dishes.map((dish) => (
-              <li key={dish._id} className="p-4 bg-gray-100 rounded-lg shadow flex space-x-4">
+              <li key={dish._id} className="p-4 bg-gray-100 rounded-lg shadow flex space-x-4 items-center">
                 {dish.image && <img src={dish.image} alt={dish.name} className="w-24 h-24 object-cover rounded-lg" />}
-                <div>
+                <div className="flex flex-col space-y-2">
                   <h3 className="text-xl font-semibold">{dish.name}</h3>
-                  <p>{dish.description}</p>
-                  <p className="text-sm">Nhà Hàng: {dish.restaurant_id.name}</p>
-                  <p className="text-sm">Địa Chỉ: {dish.restaurant_id.address}</p>
-                  <p className="text-sm">Thành phần: {dish.ingredients.join(", ")}</p>
-                  <p className="text-sm">Giá tiền: {dish.price} VND</p>
+                  <p className="text-gray-700">{dish.description}</p>
+                  <p className="text-sm text-gray-500">Nhà Hàng: {dish.restaurant_id.name}</p>
+                  <p className="text-sm text-gray-500">Địa Chỉ: {dish.restaurant_id.address}</p>
+                  <p className="text-sm text-gray-500">Thành phần: {dish.ingredients.join(", ")}</p>
+                  <p className="text-sm text-gray-500">Giá tiền: {dish.price} VND</p>
                 </div>
               </li>
             ))}
@@ -125,18 +125,17 @@ export default function Random() {
       {suggestion && (
         <div className="mt-8">
           <h2 className="text-2xl font-semibold mb-4">Gợi Ý Món Ăn</h2>
-          <div className="p-4 bg-gray-100 rounded-lg shadow flex space-x-4">
+          <div className="p-4 bg-gray-100 rounded-lg shadow flex space-x-4 items-center">
             {suggestion.image && (
               <img src={suggestion.image} alt={suggestion.name} className="w-24 h-24 object-cover rounded-lg" />
             )}
-            <div>
+            <div className="flex flex-col space-y-2">
               <h3 className="text-xl font-semibold">{suggestion.name}</h3>
-              <p>{suggestion.description}</p>
-
-              <p className="text-sm">Nhà Hàng: {suggestion.restaurant_id.name}</p>
-              <p className="text-sm">Địa Chỉ: {suggestion.restaurant_id.address}</p>
-              <p className="text-sm">Thành phần: {suggestion.ingredients.join(", ")}</p>
-              <p className="text-sm">Giá tiền: {suggestion.price} VND</p>
+              <p className="text-gray-700">{suggestion.description}</p>
+              <p className="text-sm text-gray-500">Nhà Hàng: {suggestion.restaurant_id.name}</p>
+              <p className="text-sm text-gray-500">Địa Chỉ: {suggestion.restaurant_id.address}</p>
+              <p className="text-sm text-gray-500">Thành phần: {suggestion.ingredients.join(", ")}</p>
+              <p className="text-sm text-gray-500">Giá tiền: {suggestion.price} VND</p>
             </div>
           </div>
         </div>

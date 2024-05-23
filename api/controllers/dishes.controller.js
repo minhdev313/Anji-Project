@@ -112,32 +112,34 @@ export const deleteDish = async (req, res, next) => {
 };
 
 // Get random dishes by category ID
-export const getRandomDishes = async (req, res, next) => {
-  const categoryIds = Object.values(req.query).filter((id) => id !== ""); // Get non-empty category IDs
-  const { count } = req.query;
-
+export const getRandomDish = async (req, res) => {
   try {
-    // Check if the provided categories exist
-    const validCategories = await Category.find({ _id: { $in: categoryIds } });
-    if (validCategories.length !== categoryIds.length) {
-      return res.status(400).json({ message: "Invalid category ID(s)!" });
+    const { category1, category2, category3 } = req.query;
+    const categories = [category1, category2, category3].filter(Boolean);
+
+    let query = {};
+    if (categories.length) {
+      query.category_id = { $in: categories };
     }
 
-    // Find dishes matching any of the provided categories
-    const dishes = await Dish.find({ category_id: { $in: categoryIds } }).populate("category_id restaurant_id");
+    const dishes = await Dish.find(query).populate("restaurant_id");
 
     if (dishes.length === 0) {
-      return res.status(404).json({ message: "Không có món ăn nào theo các tiêu chí bạn lựa chọn" });
+      // Suggest a random dish if no matches found
+      const randomSuggestion = await Dish.aggregate([{ $sample: { size: 1 } }]);
+      if (randomSuggestion.length) {
+        const suggestion = await Dish.findById(randomSuggestion[0]._id).populate("restaurant_id");
+        return res.status(404).json({
+          message: "Không tìm thấy món ăn phù hợp. Dưới đây là một gợi ý:",
+          suggestion,
+        });
+      } else {
+        return res.status(404).json({ message: "Không tìm thấy món ăn phù hợp và không có gợi ý nào." });
+      }
     }
 
-    // Randomly shuffle the dishes
-    const shuffledDishes = dishes.sort(() => 0.5 - Math.random());
-
-    // Get the requested number of random dishes (default is 1)
-    const numDishes = count ? parseInt(count) : 1;
-    const randomDishes = shuffledDishes.slice(0, numDishes);
-
-    res.status(200).json(randomDishes);
+    // Return matched dishes
+    res.json(dishes);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
