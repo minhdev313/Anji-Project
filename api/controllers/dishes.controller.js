@@ -127,7 +127,7 @@ export const getRandomDishes = async (req, res, next) => {
     const dishes = await Dish.find({ category_id: { $in: categoryIds } }).populate("category_id restaurant_id");
 
     if (dishes.length === 0) {
-      return res.status(404).json({ message: "No dishes found for the selected categories!" });
+      return res.status(404).json({ message: "Không có món ăn nào theo các tiêu chí bạn lựa chọn" });
     }
 
     // Randomly shuffle the dishes
