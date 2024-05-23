@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Aboutus from "./pages/Aboutus";
 import Contactus from "./pages/Contactus";
 import PrivateRoute from "./components/PrivateRoute";
+import "tailwindcss/tailwind.css";
 
 export default function App() {
   return (

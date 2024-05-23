@@ -5,7 +5,7 @@ import {
   createDish,
   updateDish,
   deleteDish,
-  getRandomDishes,
+  getRandomDish,
 } from "../controllers/dishes.controller.js";
 
 const router = express.Router();
@@ -15,6 +15,6 @@ router.get("/get/:id", getDishById);
 router.post("/create", createDish);
 router.put("/update/:id", updateDish);
 router.delete("/delete/:id", deleteDish);
-router.get("/random", getRandomDishes);
+router.get("/random", getRandomDish);
 
 export default router;
