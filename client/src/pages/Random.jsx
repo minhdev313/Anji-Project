@@ -24,7 +24,13 @@ export default function Random() {
       const categories = [select1, select2, select3].filter(Boolean);
       const categoryQueryString = categories.map((category, index) => `category${index + 1}=${category}`).join("&");
 
-      const response = await fetch(`/api/dishes/random?${categoryQueryString}`);
+      const response = await fetch(`/api/dishes/random?${categoryQueryString}`, {
+        headers: {
+          Accept: "application/json",
+          // Add other headers if needed
+        },
+      });
+
       const data = await response.json();
 
       if (response.ok) {
