@@ -113,21 +113,21 @@ export const deleteDish = async (req, res, next) => {
 
 // Get random dishes by category ID
 export const getRandomDishes = async (req, res, next) => {
-  const { categoryId } = req.params;
-  const { count } = req.query; // Optional query parameter to specify number of random dishes
+  const categoryIds = Object.values(req.query).filter((id) => id !== ""); // Get non-empty category IDs
+  const { count } = req.query;
 
   try {
-    // Check if the category exists
-    const category = await Category.findById(categoryId);
-    if (!category) {
-      return res.status(400).json({ message: "Invalid category ID!" });
+    // Check if the provided categories exist
+    const validCategories = await Category.find({ _id: { $in: categoryIds } });
+    if (validCategories.length !== categoryIds.length) {
+      return res.status(400).json({ message: "Invalid category ID(s)!" });
     }
 
-    // Find dishes by category
-    const dishes = await Dish.find({ category_id: categoryId }).populate("category_id restaurant_id");
+    // Find dishes matching any of the provided categories
+    const dishes = await Dish.find({ category_id: { $in: categoryIds } }).populate("category_id restaurant_id");
 
     if (dishes.length === 0) {
-      return res.status(404).json({ message: "No dishes found in this category!" });
+      return res.status(404).json({ message: "No dishes found for the selected categories!" });
     }
 
     // Randomly shuffle the dishes
