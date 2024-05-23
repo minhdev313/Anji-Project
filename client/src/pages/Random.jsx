@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import ReactDOM from "react-dom";
 
-export default function Random() {
+const Random = () => {
   const [formData, setFormData] = useState({
     select1: "",
     select2: "",
@@ -25,15 +26,22 @@ export default function Random() {
       const categoryQueryString = categories.map((category, index) => `category${index + 1}=${category}`).join("&");
 
       const response = await fetch(`/api/dishes/random?${categoryQueryString}`);
+
+      // Check if the response is not OK and set an appropriate error message
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText);
+      }
+
       const data = await response.json();
 
-      if (response.ok) {
+      if (data.length > 0) {
         setDishes(data);
         setError(null);
         setSuggestion(null);
       } else {
         setDishes([]);
-        setError(data.message);
+        setError("Không tìm thấy món ăn phù hợp.");
         setSuggestion(data.suggestion);
       }
     } catch (err) {
@@ -142,4 +150,7 @@ export default function Random() {
       )}
     </div>
   );
-}
+};
+
+// Render the React component to the root div
+ReactDOM.render(<Random />, document.getElementById("root"));
