@@ -2,6 +2,29 @@ import React from "react";
 import "tailwindcss/tailwind.css";
 
 export default function Home() {
+  const handleGetPremium = async () => {
+    try {
+      const response = await fetch("/api/payment/create-payment", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+          "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+          "Access-Control-Allow-Origin": "http://localhost:5173",
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      if (data.checkoutUrl) {
+        window.location.href = data.checkoutUrl;
+      } else {
+        alert("Failed to get payment URL");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again later.");
+    }
+  };
   return (
     <section className="pt-10 overflow-hidden bg-gray-50 md:pt-0 sm:pt-16 2xl:pt-16">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
@@ -55,14 +78,12 @@ export default function Home() {
           <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center sm:flex sm:items-center sm:justify-center sm:text-left">
               <h2 className="text-4xl font-bold text-white">Get full access to Anji</h2>
-              <a
-                href="#"
-                title=""
+              <button
+                onClick={handleGetPremium}
                 className="inline-flex items-center justify-center flex-shrink-0 px-4 py-4 mt-8 text-base font-semibold text-gray-900 transition-all duration-200 bg-yellow-300 rounded-md sm:mt-0 sm:ml-8 lg:ml-16 hover:bg-yellow-400 focus:bg-yellow-400"
-                role="button"
               >
                 Get Premium
-              </a>
+              </button>
             </div>
           </div>
         </section>
