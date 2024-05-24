@@ -43,17 +43,17 @@ export default function AboutUs() {
               alt="Anji"
             />
           </div>
-
-          <div className="flex items-center justify-center mt-8 text-center md:mt-0">
-            <a
-              href="#"
-              title="Join our team"
-              className="inline-flex items-center items-center justify-center py-4 font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md px-14 hover:bg-blue-700 focus:bg-blue-700"
-              role="button"
-            >
-              Join our team
-            </a>
-          </div>
+        </div>
+        <br />
+        <div className="flex items-center justify-center mt-8 text-center md:mt-0">
+          <a
+            href="#"
+            title="Join our team"
+            className="inline-flex items-center items-center justify-center py-4 font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md px-14 hover:bg-blue-700 focus:bg-blue-700"
+            role="button"
+          >
+            Join our team
+          </a>
         </div>
       </div>
     </section>
