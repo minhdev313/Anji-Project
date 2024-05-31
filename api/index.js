@@ -54,19 +54,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Serve static files only in production mode (optional)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client", "dist")));
-}
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
-// Catch-all route for client-side routing (optional)
-app.get("*", (req, res) => {
-  if (process.env.NODE_ENV === "production") {
-    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-  } else {
-    // Handle development environment routing (replace with your logic)
-    res.send("Development environment routing");
-  }
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
 app.listen(3000, () => {
