@@ -4,17 +4,19 @@ import "tailwindcss/tailwind.css";
 export default function Home() {
   const handleGetPremium = async () => {
     try {
-      const response = await fetch("/api/payment/create-payment", {
+      const response = await fetch("api/payment/create-payment", {
         method: "POST",
-        mode: "no-cors",
         headers: {
-          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-          "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
-          "Access-Control-Allow-Origin": "http://localhost:5173",
-          "Content-Type": "application/json",
+          "Content-Type": "text/html; charset=utf-8",
         },
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+
       if (data.checkoutUrl) {
         window.location.href = data.checkoutUrl;
       } else {

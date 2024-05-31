@@ -12,7 +12,6 @@ import cookieParser from "cookie-parser";
 import path from "path";
 
 dotenv.config();
-
 mongoose
   .connect(process.env.MONGODB)
   .then(() => {
@@ -25,18 +24,18 @@ mongoose
 const __dirname = path.resolve();
 const app = express();
 
-// Customizable CORS configuration (replace with your allowed origin(s))
-const allowedOrigins = ["http://localhost:3000"]; // Replace with your frontend origin(s)
 const corsOptions = {
-  origin: allowedOrigins,
-  credentials: true, // Allow cookies
-  optionsSuccessStatus: 200, // Optionally customize options success status
+  origin: 'http://localhost:5173', // URL của frontend
+  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'X-Custom-Header'],
 };
-
-app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
