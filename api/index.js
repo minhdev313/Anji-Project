@@ -8,10 +8,14 @@ import restaurantRoutes from "./routes/restaurant.route.js";
 import categoryRoutes from "./routes/category.route.js";
 import createPayment from "./routes/payment.route.js";
 import cors from "cors";
-import cookieParser from "cookie-parser";
 import path from "path";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
+
+const app = express();
+
+// Connect to MongoDB
 mongoose
   .connect(process.env.MONGODB)
   .then(() => {
@@ -22,21 +26,23 @@ mongoose
   });
 
 const __dirname = path.resolve();
-const app = express();
 
+// CORS Configuration
 const corsOptions = {
-  origin: 'http://localhost:5173', // URL của frontend
-  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'X-Custom-Header'],
+  origin: 'http://localhost:5173', // Update this to match your front-end URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204
 };
 
+app.use(cors(corsOptions));
+
+// Middleware
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
 
+// Routes
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/dishes", dishRoutes);
@@ -44,6 +50,7 @@ app.use("/api/category", categoryRoutes);
 app.use("/api/restaurant", restaurantRoutes);
 app.use("/api/payment", createPayment);
 
+// Error Handling Middleware
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || "Internal Server Error";
@@ -54,12 +61,14 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Serve static files
 app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
+// Start server
 app.listen(3000, () => {
   console.log("Server is listening on port 3000");
 });

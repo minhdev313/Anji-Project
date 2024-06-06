@@ -6,8 +6,9 @@ export default function Home() {
     try {
       const response = await fetch("api/payment/create-payment", {
         method: "POST",
+        mode: 'cors',
         headers: {
-          "Content-Type": "text/html; charset=utf-8",
+          'Content-Type': 'application/json'
         },
       });
 
@@ -16,7 +17,6 @@ export default function Home() {
       }
 
       const data = await response.json();
-
       if (data.checkoutUrl) {
         window.location.href = data.checkoutUrl;
       } else {
