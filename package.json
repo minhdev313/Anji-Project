@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@payos/node": "^1.0.6",
+    "@payos/node": "^1.0.5",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -23,6 +23,7 @@
     "mongoose": "^8.3.4",
     "nodemon": "^3.1.0",
     "pull": "^2.1.1",
+    "moment": "^2.29.4",
     "react": "^18.3.1"
   }
 }

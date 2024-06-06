@@ -6,15 +6,13 @@ import authRoutes from "./routes/auth.route.js";
 import dishRoutes from "./routes/dishes.route.js";
 import restaurantRoutes from "./routes/restaurant.route.js";
 import categoryRoutes from "./routes/category.route.js";
-import createPayment from "./routes/payment.route.js";
-import cors from "cors";
 import path from "path";
+import PayOS from "@payos/node";
 import cookieParser from "cookie-parser";
-
+const app = express();
 dotenv.config();
 
-const app = express();
-
+const payOS = new PayOS(process.env.PAYOS_CLIENT_ID, process.env.PAYOS_API_KEY, process.env.PAYOS_CHECKSUM_KEY);
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGODB)
@@ -27,28 +25,35 @@ mongoose
 
 const __dirname = path.resolve();
 
-// CORS Configuration
-const corsOptions = {
-  origin: 'http://localhost:5173', // Update this to match your front-end URL
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204
-};
-
-app.use(cors(corsOptions));
-
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
-
 // Routes
+app.use('/', express.static('public'));
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/dishes", dishRoutes);
 app.use("/api/category", categoryRoutes);
 app.use("/api/restaurant", restaurantRoutes);
-app.use("/api/payment", createPayment);
+
+app.post('/create-payment-link', async (req, res) => {
+    const body = {
+        orderCode: Number(String(Date.now()).slice(-6)),
+        amount: 25000,
+        description: 'Thanh toan don hang',
+        returnUrl: `localhost/success.html`,
+        cancelUrl: `localhost/cancel.html`
+    };
+
+    try {
+        const paymentLinkResponse = await payOS.createPaymentLink(body);
+        res.redirect(paymentLinkResponse.checkoutUrl);  
+    } catch (error) {
+        console.error(error);
+        res.send('Something went error');
+    }
+});
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
