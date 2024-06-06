@@ -12,11 +12,6 @@ export default defineConfig({
         target: "http://localhost:3000",
         secure: false,
       },
-      // '/api': {
-      //   target: 'https://pay.payos.vn',
-      //   // changeOrigin: true,
-      //   secure: false
-      // }
     },
   },
   plugins: [react(), reactRefresh()],
