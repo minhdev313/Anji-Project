@@ -70,7 +70,7 @@ app.use((err, req, res, next) => {
 app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'Home.jsx'));
+  res.sendFile(path.join(__dirname, 'client', 'dist'));
 });
 
 // Start server
