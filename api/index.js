@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 // Routes
-app.use('/', express.static('public'));
+app.use('/payment', express.static('public'));
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/dishes", dishRoutes);
