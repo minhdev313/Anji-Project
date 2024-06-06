@@ -113,8 +113,8 @@ export const deleteDish = async (req, res, next) => {
 
 export const getRandomDish = async (req, res) => {
   try {
-    const { category1, category2, category3 } = req.query;
-    const categories = [category1, category2, category3].filter(Boolean);
+    const { category1, category2, category3, category4, category5 } = req.query;
+    const categories = [category1, category2, category3, category4, category5].filter(Boolean);
 
     let query = {};
     if (categories.length) {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
@@ -21,19 +21,37 @@ export default function Header() {
           </div>
 
           <div className="hidden ml-10 lg:flex lg:items-center lg:mr-auto lg:space-x-10">
-            <Link to="/" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">
+            <Link
+              to="/"
+              className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+            >
               Home
             </Link>
 
-            <Link to="/aboutus" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">
+            <Link
+              to="/aboutus"
+              className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+            >
               About us
             </Link>
 
-            <Link to="/contactus" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">
+            <Link
+              to="/contactus"
+              className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+            >
               Contact us
             </Link>
+            <Link
+              to="/post"
+              className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+            >
+              Post
+            </Link>
 
-            <Link to="/random" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600 underline">
+            <Link
+              to="/random"
+              className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600 underline"
+            >
               Random !
             </Link>
           </div>
@@ -42,12 +60,20 @@ export default function Header() {
             {currentUser ? (
               <span className="text-base font-medium text-black">{`Chào mừng bạn ${currentUser.userName} đã quay trở lại`}</span>
             ) : (
-              <Link to="/signup" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">Sign up</Link>
+              <Link
+                to="/signup"
+                className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+              >
+                Sign up
+              </Link>
             )}
 
-            <Link to="/profile" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">
+            <Link
+              to="/profile"
+              className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+            >
               {currentUser ? (
-                <img src={currentUser.profilePicture} alt='profile' className='h-7 w-7 rounded-full object-cover' />
+                <img src={currentUser.profilePicture} alt="profile" className="h-7 w-7 rounded-full object-cover" />
               ) : (
                 "Sign in"
               )}
@@ -56,9 +82,24 @@ export default function Header() {
         </nav>
 
         <nav className="flex flex-col py-4 space-y-2 lg:hidden">
-          <Link to="/random" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600 underline">Random !</Link>
-          <Link to="/signup" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">Sign up</Link>
-          <Link to="/signin" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">Sign in</Link>
+          <Link
+            to="/random"
+            className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600 underline"
+          >
+            Random !
+          </Link>
+          <Link
+            to="/signup"
+            className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+          >
+            Sign up
+          </Link>
+          <Link
+            to="/signin"
+            className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+          >
+            Sign in
+          </Link>
         </nav>
       </div>
     </header>

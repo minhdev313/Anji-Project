@@ -11,6 +11,9 @@ import Footer from "./components/Footer";
 import Aboutus from "./pages/Aboutus";
 import Contactus from "./pages/Contactus";
 import PrivateRoute from "./components/PrivateRoute";
+import Post from "./pages/Post";
+import DetailPost from "./pages/DetailPost";
+import Detail from "./pages/123";
 import "tailwindcss/tailwind.css";
 
 export default function App() {
@@ -19,7 +22,11 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/detail-post" element={<DetailPost />} />
+        <Route path="/detail" element={<Detail />} />
         <Route path="/manage-user" element={<ManageUser />} />
+
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/policies" element={<Policies />} />
         <Route path="/signin" element={<Signin />} />

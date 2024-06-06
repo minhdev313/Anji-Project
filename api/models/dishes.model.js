@@ -22,7 +22,9 @@ const dishSchema = new Schema(
       ref: "Category", // Reference the 'Category' model for relationships
     },
     image: {
-      type: String, // Optional: Store image URL or path
+      type: String,
+      default:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpjVJ95QK9Z7ppeuEptxKb-QhLhdKkx6XbzuVd90YuJaJavpvQ2qTxDDpkH95m4A3Jbj8&usqp=CAU",
     },
     ingredients: {
       type: [String], // Array of ingredient strings

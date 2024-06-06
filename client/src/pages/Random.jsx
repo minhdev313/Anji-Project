@@ -5,6 +5,8 @@ export default function Random() {
     select1: "",
     select2: "",
     select3: "",
+    select4: "",
+    select5: "",
   });
   const [dishes, setDishes] = useState([]);
   const [error, setError] = useState(null);
@@ -20,8 +22,8 @@ export default function Random() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { select1, select2, select3 } = formData;
-      const categories = [select1, select2, select3].filter(Boolean);
+      const { select1, select2, select3, select4, select5 } = formData;
+      const categories = [select1, select2, select3, select4, select5].filter(Boolean);
       const categoryQueryString = categories.map((category, index) => `category${index + 1}=${category}`).join("&");
 
       const response = await fetch(`/api/dishes/random?${categoryQueryString}`, {
@@ -49,9 +51,9 @@ export default function Random() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className="max-w-5xl mx-auto p-6 bg-white shadow-md rounded-lg">
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
           <div className="w-full">
             <label htmlFor="select1" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Select 1
@@ -62,9 +64,11 @@ export default function Random() {
               onChange={handleChange}
               className="w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option value="">Chọn một tùy chỉnh</option>
-              <option value="664b31917170b98018eddf49">Món Nước</option>
-              <option value="664b31757170b98018eddf47">Món Khô</option>
+              <option value="">Buổi ăn</option>
+              <option value="666060a3073d7672437fd726">Sáng</option>
+              <option value=" 666060b4073d7672437fd728">Trưa</option>
+              <option value="666060c5073d7672437fd72a">Chiều</option>
+              <option value="666060d6073d7672437fd72c">Tối</option>
             </select>
           </div>
           <div className="w-full">
@@ -72,14 +76,14 @@ export default function Random() {
               Select 2
             </label>
             <select
-              id="select2"
+              id="select5"
               value={formData.select2}
               onChange={handleChange}
               className="w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option value="">Chọn một tùy chỉnh</option>
-              <option value="664b32707170b98018eddf4c">Món Chay</option>
-              <option value="664b32857170b98018eddf4e">Món Mặn</option>
+              <option value="">Lựa chọn cho bữa ăn</option>
+              <option value="66606069073d7672437fd722">Ăn No</option>
+              <option value="6660608a073d7672437fd724">Ăn Vặt</option>
             </select>
           </div>
           <div className="w-full">
@@ -92,7 +96,37 @@ export default function Random() {
               onChange={handleChange}
               className="w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option value="">Chọn một tùy chỉnh</option>
+              <option value=""> Nước/Khô </option>
+              <option value="664b31917170b98018eddf49">Món Nước</option>
+              <option value="664b31757170b98018eddf47">Món Khô</option>
+            </select>
+          </div>
+          <div className="w-full">
+            <label htmlFor="select4" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Select 4
+            </label>
+            <select
+              id="select4"
+              value={formData.select4}
+              onChange={handleChange}
+              className="w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value=""> Chay / Mặn</option>
+              <option value="664b32707170b98018eddf4c">Món Chay</option>
+              <option value="664b32857170b98018eddf4e">Món Mặn</option>
+            </select>
+          </div>
+          <div className="w-full">
+            <label htmlFor="select5" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Select 5
+            </label>
+            <select
+              id="select5"
+              value={formData.select5}
+              onChange={handleChange}
+              className="w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value="">Cách chế biến</option>
               <option value="664b357c7170b98018eddf50">Món Chiên</option>
               <option value="664b359a7170b98018eddf52">Không Dầu</option>
               <option value="664b36017170b98018eddf54">Món Nướng</option>
@@ -105,7 +139,7 @@ export default function Random() {
           type="submit"
           className="w-full mt-4 p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
         >
-          Tìm món ăn ngày
+          Tìm món ăn ngay
         </button>
       </form>
       {error && <p className="text-red-500 mt-4">{error}</p>}
@@ -120,7 +154,7 @@ export default function Random() {
                   <p>{dish.description}</p>
                   <br />
                   <p className="text-ml">
-                    Giá tiền: {dish.price.toLocaleString("vi-VN", { style: "currency", currency: "VND" })}
+                    Giá tiền: Chỉ từ {dish.price.toLocaleString("vi-VN", { style: "currency", currency: "VND" })}
                   </p>
 
                   <p className="text-sm">Nhà Hàng: {dish.restaurant_id.name}</p>
@@ -145,7 +179,7 @@ export default function Random() {
               <p>{suggestion.description}</p>
               <br />
               <p className="text-ml">
-                Giá tiền: {dish.price.toLocaleString("vi-VN", { style: "currency", currency: "VND" })}
+                Giá tiền: {suggestion.price.toLocaleString("vi-VN", { style: "currency", currency: "VND" })}
               </p>
               <p className="text-sm">Nhà Hàng: {suggestion.restaurant_id.name}</p>
               <p className="text-sm">Địa Chỉ: {suggestion.restaurant_id.address}</p>
