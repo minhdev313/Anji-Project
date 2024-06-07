@@ -173,7 +173,7 @@ export default function Random() {
         )}
         {!isPremium && selectionCount >= 5 && (
           <div className="text-center mt-2 text-sm text-gray-600">
-            <p>You have reached the limit of random selections.</p>
+            <p className="text-red-600">You have reached the limit of random selections.</p>
             <p>
               <Link to="https://anji-5vgz.onrender.com/payment/?">Upgrade to premium</Link> for unlimited access.
             </p>
