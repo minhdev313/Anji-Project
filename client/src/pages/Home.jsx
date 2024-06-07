@@ -60,7 +60,6 @@ export default function Home() {
               <h2 className="text-4xl font-bold text-white">Get full access to Anji</h2>
               {currentUser ? (
                 <form action="https://anji-5vgz.onrender.com/payment">
-                /* Dung cho localhost */
                 {/* // < form action="http://localhost:3000/payment"> */}
                   <button
                     type="submit" id="create-payment-link-btn"
