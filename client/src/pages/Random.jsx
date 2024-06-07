@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function Random() {
+  const { currentUser } = useSelector((state) => state.user);
+  const isPremium = currentUser?.level === "Premium";
+
   const [formData, setFormData] = useState({
     select1: "",
     select2: "",
@@ -11,6 +16,7 @@ export default function Random() {
   const [dishes, setDishes] = useState([]);
   const [error, setError] = useState(null);
   const [suggestion, setSuggestion] = useState(null);
+  const [selectionCount, setSelectionCount] = useState(0);
 
   const handleChange = (e) => {
     setFormData({
@@ -22,6 +28,13 @@ export default function Random() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      if (isPremium || selectionCount < 5) {
+        setSelectionCount((prevCount) => prevCount + 1);
+      } else {
+        setError("You have reached the limit of random selections. Upgrade to premium for unlimited access.");
+        return;
+      }
+
       const { select1, select2, select3, select4, select5 } = formData;
       const categories = [select1, select2, select3, select4, select5].filter(Boolean);
       const categoryQueryString = categories.map((category, index) => `category${index + 1}=${category}`).join("&");
@@ -49,7 +62,6 @@ export default function Random() {
       setSuggestion(null);
     }
   };
-
   return (
     <div className="max-w-5xl mx-auto p-6 bg-white shadow-md rounded-lg items-center justify-center content-center">
       <form onSubmit={handleSubmit}>
@@ -135,15 +147,38 @@ export default function Random() {
             </select>
           </div>
         </div>
+        {/* button random */}
 
-        <div className="flex justify-center mt-4">
-          <button
-            type="submit"
-            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-          >
-            Tìm món ăn ngay
-          </button>
-        </div>
+        {currentUser ? (
+          <div className="flex justify-center mt-4">
+            <button
+              type="submit"
+              className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              disabled={!isPremium && selectionCount >= 5}
+            >
+              Tìm món ăn ngay
+            </button>
+          </div>
+        ) : (
+          <Link to="/signin">
+            <div className="flex justify-center mt-4">
+              <button
+                type="submit"
+                className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              >
+                Bạn chưa đặp nhập nhấn vào đây
+              </button>
+            </div>
+          </Link>
+        )}
+        {!isPremium && selectionCount >= 5 && (
+          <div className="text-center mt-2 text-sm text-gray-600">
+            <p>You have reached the limit of random selections.</p>
+            <p>
+              <Link to="https://anji-5vgz.onrender.com/payment/?">Upgrade to premium</Link> for unlimited access.
+            </p>
+          </div>
+        )}
       </form>
 
       {dishes.length > 0 && (
@@ -170,6 +205,7 @@ export default function Random() {
         </div>
       )}
 
+      {/* Display suggestion */}
       {suggestion && (
         <div className="mt-8">
           <h2 className="text-2xl font-semibold mb-4">Gợi Ý Món Ăn</h2>
@@ -191,6 +227,8 @@ export default function Random() {
           </div>
         </div>
       )}
+
+      {/* Display error */}
       {error && <p className="text-red-500 mt-4 text-center text-base">{error}</p>}
     </div>
   );
