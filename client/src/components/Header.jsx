@@ -36,10 +36,10 @@ export default function Header() {
             </Link>
 
             <Link
-              to="/contactus"
+              to="/mascot"
               className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
             >
-              Contact us
+              Mascot
             </Link>
             <Link
               to="/post"
@@ -58,7 +58,7 @@ export default function Header() {
 
           <div className="hidden lg:flex lg:items-center lg:space-x-10">
             {currentUser ? (
-              <span className="text-base font-medium text-black">{`Chào mừng bạn ${currentUser.userName} đã quay trở lại`}</span>
+              <span className="text-base font-medium text-black">{`${currentUser.userName}`}</span>
             ) : (
               <Link
                 to="/signup"

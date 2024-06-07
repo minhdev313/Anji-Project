@@ -116,31 +116,53 @@ export const getRandomDish = async (req, res) => {
     const { category1, category2, category3, category4, category5 } = req.query;
     const categories = [category1, category2, category3, category4, category5].filter(Boolean);
 
-    let query = {};
-    if (categories.length) {
-      query.category_id = { $in: categories };
+    if (categories.length === 0) {
+      return res.status(400).json({
+        message: "Bạn phải chọn ít nhất một lựa chọn",
+        image: "https://th.bing.com/th/id/OIP.tLotgCDtzgTdwJcTiXWRCwHaEK?rs=1&pid=ImgDetMain",
+      });
     }
 
-    const dishes = await Dish.find(query).populate("restaurant_id");
+    let dishes = [];
+    let query = {};
 
     if (dishes.length === 0) {
       // Suggest a random dish if no matches found
-      const randomSuggestion = await Dish.aggregate([{ $sample: { size: 1 } }]);
-      if (randomSuggestion.length) {
-        const suggestion = await Dish.findById(randomSuggestion[0]._id).populate("restaurant_id");
-        return res.status(404).json({
-          message: "No matching dish found. Here is a suggestion:",
-          suggestion,
-        });
-      } else {
-        return res.status(404).json({ message: "No matching dish found and no suggestions available." });
+      let matchFound = false;
+      let randomSuggestion;
+      const maxAttempts = 5;
+      let attempts = 0;
+
+      while (!matchFound && attempts < maxAttempts) {
+        randomSuggestion = await Dish.aggregate([{ $sample: { size: 1 } }]);
+        if (randomSuggestion.length) {
+          const suggestion = await Dish.findById(randomSuggestion[0]._id).populate("restaurant_id");
+          const suggestionCategories = suggestion.category_id.map((cat) => cat.toString());
+          const matchingCategories = categories.filter((cat) => suggestionCategories.includes(cat));
+          const matchPercentage = (matchingCategories.length / categories.length) * 100;
+
+          if (matchPercentage > 0) {
+            matchFound = true;
+            return res.status(404).json({
+              message: `Gợi ý này phù hợp đúng ${matchPercentage.toFixed(2)}% với các lựa chọn của bạn`,
+              suggestion,
+            });
+          }
+        }
+        attempts++;
       }
+
+      // If no match found after several attempts, return a generic message
+      return res.status(404).json({
+        message: "Không có món ăn nào phù hợp với các lựa chọn của bạn. Vui lòng thử lại với các tùy chọn khác.",
+      });
     }
 
-    // Return a single random dish
+    // Return a single random dish from the matched dishes
     const randomIndex = Math.floor(Math.random() * dishes.length);
     res.json([dishes[randomIndex]]);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error("Error fetching random dish:", err); // Log the error for debugging
+    res.status(500).json({ message: "Internal Server Error", error: err.message });
   }
 };

@@ -79,24 +79,15 @@ export default function Footer() {
                   Features{" "}
                 </a>
               </li>
+
               <li>
                 <a
-                  href="#"
+                  href="contactus"
                   title=""
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
                   {" "}
-                  Works{" "}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  title=""
-                  className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                >
-                  {" "}
-                  Career{" "}
+                  Contact us{" "}
                 </a>
               </li>
             </ul>

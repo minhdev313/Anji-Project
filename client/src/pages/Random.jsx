@@ -51,7 +51,7 @@ export default function Random() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className="max-w-5xl mx-auto p-6 bg-white shadow-md rounded-lg items-center justify-center content-center">
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
           <div className="w-full">
@@ -66,7 +66,7 @@ export default function Random() {
             >
               <option value="">Buổi ăn</option>
               <option value="666060a3073d7672437fd726">Sáng</option>
-              <option value=" 666060b4073d7672437fd728">Trưa</option>
+              <option value="666060b4073d7672437fd728">Trưa</option>
               <option value="666060c5073d7672437fd72a">Chiều</option>
               <option value="666060d6073d7672437fd72c">Tối</option>
             </select>
@@ -76,7 +76,7 @@ export default function Random() {
               Select 2
             </label>
             <select
-              id="select5"
+              id="select2"
               value={formData.select2}
               onChange={handleChange}
               className="w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -96,7 +96,7 @@ export default function Random() {
               onChange={handleChange}
               className="w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option value=""> Nước/Khô </option>
+              <option value=""> Nước / Khô </option>
               <option value="664b31917170b98018eddf49">Món Nước</option>
               <option value="664b31757170b98018eddf47">Món Khô</option>
             </select>
@@ -135,14 +135,17 @@ export default function Random() {
             </select>
           </div>
         </div>
-        <button
-          type="submit"
-          className="w-full mt-4 p-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-        >
-          Tìm món ăn ngay
-        </button>
+
+        <div className="flex justify-center mt-4">
+          <button
+            type="submit"
+            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          >
+            Tìm món ăn ngay
+          </button>
+        </div>
       </form>
-      {error && <p className="text-red-500 mt-4">{error}</p>}
+
       {dishes.length > 0 && (
         <div className="mt-8">
           <ul className="space-y-4">
@@ -154,7 +157,7 @@ export default function Random() {
                   <p>{dish.description}</p>
                   <br />
                   <p className="text-ml">
-                    Giá tiền: Chỉ từ {dish.price.toLocaleString("vi-VN", { style: "currency", currency: "VND" })}
+                    Giá tiền :Chỉ từ {dish.price.toLocaleString("vi-VN", { style: "currency", currency: "VND" })}
                   </p>
 
                   <p className="text-sm">Nhà Hàng: {dish.restaurant_id.name}</p>
@@ -179,7 +182,7 @@ export default function Random() {
               <p>{suggestion.description}</p>
               <br />
               <p className="text-ml">
-                Giá tiền: {suggestion.price.toLocaleString("vi-VN", { style: "currency", currency: "VND" })}
+                Giá tiền: Chỉ từ {suggestion.price.toLocaleString("vi-VN", { style: "currency", currency: "VND" })}
               </p>
               <p className="text-sm">Nhà Hàng: {suggestion.restaurant_id.name}</p>
               <p className="text-sm">Địa Chỉ: {suggestion.restaurant_id.address}</p>
@@ -188,6 +191,7 @@ export default function Random() {
           </div>
         </div>
       )}
+      {error && <p className="text-red-500 mt-4 text-center text-base">{error}</p>}
     </div>
   );
 }

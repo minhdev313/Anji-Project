@@ -16,6 +16,7 @@ import TermsEs from "./pages/TermsEs";
 import TermsVn from "./pages/TermsVn";
 import DetailPost from "./pages/DetailPost";
 import Detail from "./pages/123";
+import Mascot from "./pages/mascot";
 import "tailwindcss/tailwind.css";
 
 export default function App() {
@@ -28,7 +29,7 @@ export default function App() {
         <Route path="/detail-post" element={<DetailPost />} />
         <Route path="/detail" element={<Detail />} />
         <Route path="/manage-user" element={<ManageUser />} />
-
+        <Route path="/mascot" element={<Mascot />} />
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/policies" element={<Policies />} />
         <Route path="/signin" element={<Signin />} />
