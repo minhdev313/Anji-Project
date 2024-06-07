@@ -10,15 +10,9 @@ export default function TermsVn() {
                     </h2>
                 </div>
                 <div className="mt-8">
-                    <a
-                        href="" // Change this to your desired link
-                        className="inline-flex items-center justify-center py-2 px-4 font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:bg-blue-700"
-                        role="button"
-                    >
-                        <Link to="/termsEs">
-                            Việt Nam
-                        </Link>
-                    </a>
+                    <Link to="/termsEs" className="inline-flex items-center justify-center py-2 px-4 font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:bg-blue-700">
+                        Việt Nam
+                    </Link>
                 </div>
                 <div className="mt-8 space-y-8">
                     <div>
