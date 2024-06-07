@@ -154,7 +154,7 @@ export const getRandomDish = async (req, res) => {
 
       // If no match found after several attempts, return a generic message
       return res.status(404).json({
-        message: "Không có món ăn nào phù hợp với các lựa chọn của bạn. Vui lòng thử lại với các tùy chọn khác.",
+        message: " Vui lòng thử lại với các tùy chọn khác.",
       });
     }
 

@@ -166,16 +166,16 @@ export default function Random() {
                 type="submit"
                 className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
               >
-                Bạn chưa đặp nhập nhấn vào đây
+                Bạn chưa đăng nhập nhấn vào đây
               </button>
             </div>
           </Link>
         )}
         {!isPremium && selectionCount >= 5 && (
           <div className="text-center mt-2 text-sm text-gray-600">
-            <p className="text-red-600">You have reached the limit of random selections.</p>
+            <p className="text-red-600">Bạn đã đạt hạn mức tìm món của ngày</p>
             <p>
-              <Link to="https://anji-5vgz.onrender.com/payment/?">Upgrade to premium</Link> for unlimited access.
+              <Link to="https://anji-5vgz.onrender.com/payment/?">Nâng cấp ngay</Link> .
             </p>
           </div>
         )}
