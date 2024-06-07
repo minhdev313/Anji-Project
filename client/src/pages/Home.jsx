@@ -1,7 +1,7 @@
 import React from "react";
 import "tailwindcss/tailwind.css";
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 export default function Home() {
   const { currentUser } = useSelector((state) => state.user);
@@ -11,21 +11,21 @@ export default function Home() {
         <div className="grid items-center grid-cols-1 md:grid-cols-2">
           <div>
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-              Hey 👋 We are <br className="block sm:hidden" />
+              Hey 👋 Chúng tôi <br className="block sm:hidden" />
               Anji
             </h2>
             <p className="max-w-lg mt-3 text-xl leading-relaxed text-gray-600 md:mt-8">
-              Let us spice up your dining experience with personalized and unexpected culinary suggestions. Explore a
-              world of flavors and make every meal an exciting adventure with ANJI
+              Hãy để chúng tôi làm cho trải nghiệm ăn uống của bạn thêm thú vị với những gợi ý ẩm thực bất ngờ và được
+              cá nhân hóa. Khám phá thế giới hương vị và biến mỗi bữa ăn thành một cuộc phiêu lưu thú vị với ANJI
             </p>
 
             <p className="mt-4 text-xl text-gray-600 md:mt-8">
               <span className="relative inline-block">
                 <span className="absolute inline-block w-full bottom-0.5 h-2 bg-yellow-300"></span>
-                <span className="relative"> Have a question? </span>
+                <span className="relative"> Có một câu hỏi? </span>
               </span>
               <br className="block sm:hidden" />
-              Ask me on{" "}
+              Hỏi chúng tôi trên{" "}
               <a
                 href="https://www.facebook.com/AnJi358pro"
                 title=""
@@ -57,24 +57,31 @@ export default function Home() {
         <section className="py-10 bg-gradient-to-r from-red-200 to-red-600 sm:py-16">
           <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center sm:flex sm:items-center sm:justify-center sm:text-left">
-              <h2 className="text-4xl font-bold text-white">Get full access to Anji</h2>
+              <h2 className="text-4xl font-bold text-white">Nhận quyền truy cập đầy đủ vào Anji</h2>
               {currentUser ? (
                 <form action="https://anji-5vgz.onrender.com/payment">
-                {/* // < form action="http://localhost:3000/payment"> */}
+                  {/* // < form action="http://localhost:3000/payment"> */}
                   <button
-                    type="submit" id="create-payment-link-btn"
+                    type="submit"
+                    id="create-payment-link-btn"
                     className="inline-flex items-center justify-center flex-shrink-0 px-4 py-4 mt-8 text-base font-semibold text-gray-900 transition-all duration-200 bg-yellow-300 rounded-md sm:mt-0 sm:ml-8 lg:ml-16 hover:bg-yellow-400 focus:bg-yellow-400"
                   >
-                    Get Premium
+                    Nâng cấp
                   </button>
                 </form>
               ) : (
-                <Link to="/signin" className="inline-flex items-center justify-center flex-shrink-0 px-4 py-4 mt-8 text-base font-semibold text-gray-900 transition-all duration-200 bg-yellow-300 rounded-md sm:mt-0 sm:ml-8 lg:ml-16 hover:bg-yellow-400 focus:bg-yellow-400">Get Premium</Link>
+                <Link
+                  to="/signin"
+                  className="inline-flex items-center justify-center flex-shrink-0 px-4 py-4 mt-8 text-base font-semibold text-gray-900 transition-all duration-200 bg-yellow-300 rounded-md sm:mt-0 sm:ml-8 lg:ml-16 hover:bg-yellow-400 focus:bg-yellow-400"
+                >
+                  {" "}
+                  Nâng cấp
+                </Link>
               )}
             </div>
           </div>
         </section>
-      </div >
+      </div>
 
       <div>
         <section className="py-10 bg-white sm:py-16 lg:py-24">
@@ -97,11 +104,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="mt-8 text-lg font-semibold text-black">Secured Payments</h3>
-                <p className="mt-4 text-sm text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis
-                  enim velit mollit.
-                </p>
+                <h3 className="mt-8 text-lg font-semibold text-black">Thanh toán an toàn</h3>
               </div>
 
               <div>
@@ -121,11 +124,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="mt-8 text-lg font-semibold text-black">Fast & Easy to Load</h3>
-                <p className="mt-4 text-sm text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis
-                  enim velit mollit.
-                </p>
+                <h3 className="mt-8 text-lg font-semibold text-black">Dễ sử dụng</h3>
               </div>
 
               <div>
@@ -145,11 +144,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="mt-8 text-lg font-semibold text-black">Light & Dark Version</h3>
-                <p className="mt-4 text-sm text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis
-                  enim velit mollit.
-                </p>
+                <h3 className="mt-8 text-lg font-semibold text-black">Giao diện dễ sử dụng</h3>
               </div>
 
               <div>
@@ -169,11 +164,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="mt-8 text-lg font-semibold text-black">Filter Blocks</h3>
-                <p className="mt-4 text-sm text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis
-                  enim velit mollit.
-                </p>
+                <h3 className="mt-8 text-lg font-semibold text-black">Lựa Lọc đa dạng</h3>
               </div>
             </div>
           </div>
@@ -222,9 +213,9 @@ export default function Home() {
                         </span>
                         <span className="block mt-2 text-sm font-medium leading-snug text-amber-900 sm:text-base">
                           {" "}
-                          Dishes are
+                          Món ăn
                           <br />
-                          updated continuously{" "}
+                          cập nhật liên tục{" "}
                         </span>
                       </div>
                     </div>
@@ -234,12 +225,13 @@ export default function Home() {
 
               <div className="md:order-1">
                 <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-                  Discover the Flavors of Our Local Cuisine
+                  Khám phá hương vị ẩm thực địa phương của chúng tôi
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-gray-600">
-                  From savory street food to exquisite gourmet dishes, our local fare offers a culinary adventure like
-                  no other. Experience the vibrant spices, fresh ingredients, and time-honored recipes that make our
-                  food a true delight for the senses.
+                  Từ đồ ăn đường phố hấp dẫn đến các món ăn hảo hạng tinh tế, ẩm thực địa phương của chúng tôi mang đến
+                  một cuộc phiêu lưu ẩm thực không giống bất kỳ nơi nào khác. Trải nghiệm các loại gia vị sống động,
+                  nguyên liệu tươi ngon và công thức nấu ăn lâu đời khiến cho món ăn của chúng tôi trở thành niềm vui
+                  thực sự cho các giác quan.
                 </p>
 
                 <a
@@ -249,7 +241,7 @@ export default function Home() {
                   role="button"
                 >
                   {" "}
-                  Start exploring{" "}
+                  Bắt đầu tim hiểu{" "}
                 </a>
               </div>
             </div>
@@ -306,12 +298,12 @@ export default function Home() {
 
               <div className="flex flex-col items-start xl:px-16">
                 <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-                  Unexpected Delights Await Your Taste Buds.
+                  Những thú vui bất ngờ đang chờ đón vị giác của bạn.
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-gray-600">
-                  Prepare to be pleasantly surprised by the unexpected delights of our culinary offerings. Each dish is
-                  crafted to not only satisfy your hunger but also to tantalize your taste buds with unique and
-                  delightful flavors.
+                  Hãy chuẩn bị để được ngạc nhiên thú vị bởi những món ăn ngon bất ngờ của chúng tôi. Mỗi món ăn được
+                  chế biến không chỉ để thỏa mãn cơn đói của bạn mà còn để kích thích vị giác của bạn bằng hương vị độc
+                  đáo và thú vị.
                 </p>
 
                 <a
@@ -320,7 +312,7 @@ export default function Home() {
                   className="inline-flex items-center justify-center px-5 py-4 mt-8 text-base font-semibold text-white transition-all duration-200 rounded-md hover:opacity-90 focus:opacity-90 lg:mt-auto bg-gradient-to-r from-fuchsia-600 to-blue-600"
                   role="button"
                 >
-                  Get started now
+                  Bắt đầu ngay
                   <svg
                     className="w-5 h-5 ml-8 -mr-1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -339,6 +331,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-    </section >
+    </section>
   );
 }

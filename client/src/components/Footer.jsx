@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 export default function Footer() {
   return (
@@ -66,7 +66,7 @@ export default function Footer() {
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
                   {" "}
-                  About{" "}
+                  Về chúng tôi{" "}
                 </a>
               </li>
               <li>
@@ -76,7 +76,7 @@ export default function Footer() {
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
                   {" "}
-                  Features{" "}
+                  Tính năng{" "}
                 </a>
               </li>
 
@@ -87,14 +87,14 @@ export default function Footer() {
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
                   {" "}
-                  Contact us{" "}
+                  Liên hệ{" "}
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">Help</p>
+            <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">Hỗ trợ</p>
             <ul className="mt-6 space-y-4">
               <li>
                 <a
@@ -103,38 +103,17 @@ export default function Footer() {
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
                   {" "}
-                  Customer Support{" "}
+                  Hỗ Trợ Khách Hàng{" "}
                 </a>
               </li>
+
               <li>
                 <a
                   href="#"
                   title=""
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
-                  {" "}
-                  Delivery Details{" "}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  title=""
-                  className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                >
-                  <Link to="/termsEs">
-                  Terms & Conditions
-                  </Link>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  title=""
-                  className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                >
-                  {" "}
-                  Privacy Policy{" "}
+                  <Link to="/termsEs">Quy Tác & Luật</Link>
                 </a>
               </li>
             </ul>

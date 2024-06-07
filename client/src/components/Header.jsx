@@ -25,14 +25,14 @@ export default function Header() {
               to="/"
               className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
             >
-              Home
+              Trang Chủ
             </Link>
 
             <Link
               to="/aboutus"
               className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
             >
-              About us
+              Về Chúng tôi
             </Link>
 
             <Link
@@ -45,7 +45,7 @@ export default function Header() {
               to="/post"
               className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
             >
-              Post
+              Bài Đăng
             </Link>
 
             <Link
@@ -64,7 +64,7 @@ export default function Header() {
                 to="/signup"
                 className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
               >
-                Sign up
+                Đăng kí
               </Link>
             )}
 
@@ -75,7 +75,7 @@ export default function Header() {
               {currentUser ? (
                 <img src={currentUser.profilePicture} alt="profile" className="h-7 w-7 rounded-full object-cover" />
               ) : (
-                "Sign in"
+                "Đăng Nhập"
               )}
             </Link>
           </div>
@@ -92,13 +92,13 @@ export default function Header() {
             to="/signup"
             className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
           >
-            Sign up
+            Đăng Kí
           </Link>
           <Link
             to="/signin"
             className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
           >
-            Sign in
+            Đăng Nhập
           </Link>
         </nav>
       </div>
