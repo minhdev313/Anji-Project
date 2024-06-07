@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 // Routes
-app.use('/payment', express.static('public'));
+app.use('/payment', express.static('payment'));
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/dishes", dishRoutes);
@@ -42,8 +42,8 @@ app.post('/create-payment-link', async (req, res) => {
         orderCode: Number(String(Date.now()).slice(-6)),
         amount: 25000,
         description: 'Thanh toan don hang',
-        returnUrl: `localhost/success.html`,
-        cancelUrl: `localhost/cancel.html`
+        returnUrl: `https://anji-5vgz.onrender.com`,
+        cancelUrl: `https://anji-5vgz.onrender.com`
     };
 
     try {

@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 export default function Footer() {
   return (
@@ -129,8 +131,9 @@ export default function Footer() {
                   title=""
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
-                  {" "}
-                  Terms & Conditions{" "}
+                  <Link to="/termsEs">
+                  Terms & Conditions
+                  </Link>
                 </a>
               </li>
               <li>

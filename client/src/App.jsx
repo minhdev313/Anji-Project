@@ -12,6 +12,8 @@ import Aboutus from "./pages/Aboutus";
 import Contactus from "./pages/Contactus";
 import PrivateRoute from "./components/PrivateRoute";
 import Post from "./pages/Post";
+import TermsEs from "./pages/TermsEs";
+import TermsVn from "./pages/TermsVn";
 import DetailPost from "./pages/DetailPost";
 import Detail from "./pages/123";
 import "tailwindcss/tailwind.css";
@@ -36,6 +38,8 @@ export default function App() {
         </Route>
         <Route path="/random" element={<Random />} />
         <Route path="/aboutus" element={<Aboutus />} />
+        <Route path="/termsEs" element={<TermsEs />} />
+        <Route path="/termsVn" element={<TermsVn />} />
       </Routes>
       <Footer />
     </BrowserRouter>
