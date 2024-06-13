@@ -55,6 +55,12 @@ app.post('/create-payment-link', async (req, res) => {
     }
 });
 
+
+app.post("/receive-hook", async(req, res) => {
+  console.log(req.body);
+  res.json();
+})
+
 // Error Handling Middleware
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
