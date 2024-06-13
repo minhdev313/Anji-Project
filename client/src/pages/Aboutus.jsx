@@ -9,16 +9,16 @@ export default function AboutUs() {
             Câu chuyện của chúng tôi: <br /> Tìm món ăn hoàn hảo một cách dễ dàng
           </h2>
           <p className="max-w-2xl mx-auto mt-4 text-xl text-gray-600">
-            Việc lựa chọn món ăn phù hợp thường là một nhiệm vụ khó khăn. Với vô số lựa chọn và hương vị đa dạng, thật
-            dễ dàng để cảm thấy choáng ngợp. Đó chính là lúc Anji xuất hiện. Người sáng lập của chúng tôi, Anji, lớn lên
-            trong một gia đình bận rộn, nơi mỗi bữa ăn đều là một sự kiện, và bàn ăn là nơi của niềm vui và sự gắn kết.
-            Tuy nhiên, cô thường nhận thấy gia đình và bạn bè của cô khó khăn như thế nào để thống nhất về việc nên ăn
-            gì. Số lượng lựa chọn quá nhiều thường dẫn đến sự do dự, và đôi khi là thất vọng. Tại Anji, chúng tôi tin
-            rằng mọi bữa ăn đều phải là một trải nghiệm thú vị. Đội ngũ chuyên gia ẩm thực và những người đam mê công
-            nghệ của chúng tôi làm việc không biết mệt mỏi để tuyển chọn một thực đơn đa dạng, đưa ra các khuyến nghị
-            được cá nhân hóa và đảm bảo rằng mỗi món ăn đều đáp ứng các tiêu chuẩn cao về hương vị và chất lượng của
-            chúng tôi. Cho dù bạn đang thèm một món ăn mới hay đang tìm kiếm một món ăn yêu thích đáng tin cậy, Anji
-            luôn ở đây để giúp bạn khám phá bữa ăn hoàn hảo cho mọi dịp.
+            Việc lựa chọn món ăn phù hợp thường là một nhiệm vụ đầy thử thách. Với vô số lựa chọn và hương vị đa dạng,
+            dễ dàng khiến bạn cảm thấy choáng ngợp. Đây chính là lúc Anji xuất hiện. Người sáng lập của chúng tôi, Anji,
+            lớn lên trong một gia đình bận rộn, nơi mỗi bữa ăn không chỉ là một sự kiện, mà còn là dịp để tạo ra niềm
+            vui và gắn kết. Tuy nhiên, cô thường nhận thấy gia đình và bạn bè của mình gặp khó khăn trong việc quyết
+            định nên ăn gì. Quá nhiều lựa chọn đôi khi dẫn đến sự do dự và thậm chí là thất vọng. Tại Anji, chúng tôi
+            tin rằng mọi bữa ăn đều phải là một trải nghiệm thú vị. Đội ngũ chuyên gia ẩm thực và những người đam mê
+            công nghệ của chúng tôi không ngừng làm việc để tuyển chọn một thực đơn đa dạng, đưa ra các khuyến nghị được
+            cá nhân hóa và đảm bảo rằng mỗi món ăn đều đáp ứng các tiêu chuẩn cao về hương vị và chất lượng. Dù bạn đang
+            thèm một món ăn mới hay tìm kiếm một món ăn yêu thích đáng tin cậy, Anji luôn sẵn sàng giúp bạn khám phá bữa
+            ăn hoàn hảo cho mọi dịp.
           </p>
         </div>
 
