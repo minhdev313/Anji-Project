@@ -113,7 +113,7 @@ export default function Footer() {
                   title=""
                   className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
                 >
-                  <Link to="/termsEs">Quy Tác & Luật</Link>
+                  <Link to="/termsVn">Quy Tác & Luật</Link>
                 </a>
               </li>
             </ul>
