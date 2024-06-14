@@ -17,6 +17,7 @@ import TermsVn from "./pages/TermsVn";
 import DetailPost from "./pages/DetailPost";
 import Detail from "./pages/123";
 import Mascot from "./pages/mascot";
+import SuccessPayment from "./pages/Success";
 import "tailwindcss/tailwind.css";
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/termsEs" element={<TermsEs />} />
         <Route path="/termsVn" element={<TermsVn />} />
+        <Route path="/success" element={<SuccessPayment />} />
       </Routes>
       <Footer />
     </BrowserRouter>

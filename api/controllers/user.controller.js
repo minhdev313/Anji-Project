@@ -52,3 +52,21 @@ export const deleteUser = async (req, res, next) => {
     next(error);
   }
 };
+
+export const updateLevelToPremium = async (req, res, next) => {
+  try {
+    const user = await User.findByIdAndUpdate(
+      req.params.id,
+      { level: 'Premium' },
+      { new: true }
+    );
+
+    if (!user) {
+      return next(errorHandler(404, "User not found"));
+    }
+
+    res.status(200).json({ message: 'User level updated to Premium', user });
+  } catch (error) {
+    next(errorHandler(500, 'Error updating user level: ' + error.message));
+  }
+};
