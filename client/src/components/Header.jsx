@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
-  const isPremium = currentUser?.level === 'Premium';
+  const isPremium = currentUser?.level === "Premium";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -59,16 +59,18 @@ export default function Header() {
               <div className="flex items-center space-x-2">
                 <span
                   style={{
-                    backgroundColor: isPremium ? 'gold' : 'silver',
-                    padding: '5px 10px',
-                    borderRadius: '12px',
-                    display: 'inline-block',
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                    backgroundImage: isPremium ? 'linear-gradient(to right, #ffd700, #ffe033)' : 'linear-gradient(to right, #e0e0e0, #f8f8f8)',
-                    transition: 'transform 0.2s',
+                    backgroundColor: isPremium ? "gold" : "silver",
+                    padding: "5px 10px",
+                    borderRadius: "12px",
+                    display: "inline-block",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    backgroundImage: isPremium
+                      ? "linear-gradient(to right, #ffd700, #ffe033)"
+                      : "linear-gradient(to right, #e0e0e0, #f8f8f8)",
+                    transition: "transform 0.2s",
                   }}
-                  onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
-                  onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                  onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+                  onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
                 >
                   {currentUser.level}
                 </span>
@@ -95,12 +97,14 @@ export default function Header() {
           </div>
 
           <div className="lg:hidden">
-            <button
-              type="button"
-              className="text-white"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <button type="button" className="text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
             </button>
@@ -149,16 +153,18 @@ export default function Header() {
                 <div className="flex flex-col items-start space-y-2">
                   <span
                     style={{
-                      backgroundColor: isPremium ? 'gold' : 'silver',
-                      padding: '5px 10px',
-                      borderRadius: '12px',
-                      display: 'inline-block',
-                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                      backgroundImage: isPremium ? 'linear-gradient(to right, #ffd700, #ffe033)' : 'linear-gradient(to right, #e0e0e0, #f8f8f8)',
-                      transition: 'transform 0.2s',
+                      backgroundColor: isPremium ? "gold" : "silver",
+                      padding: "5px 10px",
+                      borderRadius: "12px",
+                      display: "inline-block",
+                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                      backgroundImage: isPremium
+                        ? "linear-gradient(to right, #ffd700, #ffe033)"
+                        : "linear-gradient(to right, #e0e0e0, #f8f8f8)",
+                      transition: "transform 0.2s",
                     }}
-                    onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
-                    onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                    onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+                    onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
                   >
                     {currentUser.level}
                   </span>

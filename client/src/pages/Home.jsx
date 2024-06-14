@@ -37,13 +37,13 @@ export default function Home() {
 
           <div className="relative">
             <img
-              className="absolute inset-x-0 bottom-0 -mb-20 -translate-x-1/2 left-1/2"
+              className="absolute inset-x-0 bottom-0 -mb-20 -translate-x-1/2 left-1/2 small-screen"
               src="https://images.squarespace-cdn.com/content/v1/639b7e13518990603a3ecf7a/c1dc4f01-76d4-4192-a879-733fbcc8ac73/Blobs+02.png?format=1500w"
               alt=""
             />
 
             <img
-              className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
+              className="relative w-full md:max-w-5 xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
               src="https://gcdnb.pbrd.co/images/Jad9wTReM8BA.png"
               alt=""
             />
@@ -53,31 +53,59 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-r sm:py-16"></section>
 
       <div>
-      <section className="py-10 bg-gradient-to-r from-red-200 to-red-600 sm:py-16">
+        <section className="py-10 bg-gradient-to-r from-red-200 to-red-600 sm:py-16">
           <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center sm:flex sm:items-center sm:justify-center sm:text-left">
               {currentUser ? (
                 <>
-                  {currentUser.level !== 'Premium' ? (
-                    <form action="https://anji-5vgz.onrender.com/payment" style={{ background: '#6e8efb', padding: '20px', borderRadius: '15px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <h2 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#fff', marginRight: '1rem' }}>Nhận quyền truy cập đầy đủ vào Anji</h2>
+                  {currentUser.level !== "Premium" ? (
+                    <form
+                      action="https://anji-5vgz.onrender.com/payment"
+                      style={{
+                        background: "#6e8efb",
+                        padding: "20px",
+                        borderRadius: "15px",
+                        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <h2 style={{ fontSize: "2.5rem", fontWeight: "700", color: "#fff", marginRight: "1rem" }}>
+                        Nhận quyền truy cập đầy đủ vào Anji
+                      </h2>
                       <button
                         type="submit"
                         id="create-payment-link-btn"
-                        style={{ padding: '10px 20px', fontSize: '1.25rem', fontWeight: '600', color: '#333', background: '#ffcc00', borderRadius: '8px', cursor: 'pointer', transition: 'background 0.3s ease-in-out' }}
+                        style={{
+                          padding: "10px 20px",
+                          fontSize: "1.25rem",
+                          fontWeight: "600",
+                          color: "#333",
+                          background: "#ffcc00",
+                          borderRadius: "8px",
+                          cursor: "pointer",
+                          transition: "background 0.3s ease-in-out",
+                        }}
                       >
                         Nâng cấp
                       </button>
                     </form>
                   ) : (
-                    <h2 style={{ fontSize: '3rem', fontWeight: '700', color: '#fff' }}>
-                      Chào mừng {currentUser.userName} đã quay trở lại với Anji<span role="img" aria-label="Wave Emoji">😘</span>
+                    <h2 style={{ fontSize: "3rem", fontWeight: "700", color: "#fff" }}>
+                      Chào mừng {currentUser.userName} đã quay trở lại với Anji
+                      <span role="img" aria-label="Wave Emoji">
+                        😘
+                      </span>
                     </h2>
                   )}
                 </>
               ) : (
-                <h2 style={{ fontSize: '3rem', fontWeight: '700', color: '#fff' }}>
-                  Chào mừng bạn đã đến với Anji<span role="img" aria-label="Wave Emoji">😘</span>
+                <h2 style={{ fontSize: "3rem", fontWeight: "700", color: "#fff" }}>
+                  Chào mừng bạn đã đến với Anji
+                  <span role="img" aria-label="Wave Emoji">
+                    😘
+                  </span>
                 </h2>
               )}
             </div>
