@@ -17,7 +17,7 @@ import TermsVn from "./pages/TermsVn";
 import DetailPost from "./pages/DetailPost";
 import Detail from "./pages/123";
 import Mascot from "./pages/mascot";
-import SuccessPayment from "./pages/success";
+import SuccessPayment from "./pages/Success";
 import "tailwindcss/tailwind.css";
 
 export default function App() {
