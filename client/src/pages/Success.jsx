@@ -109,6 +109,11 @@ const SuccessPayment = () => {
                             Thanh toán thành công
                         </strong>
                     </p>
+                    <p style={{ margin: 0, padding: '5px 0' }}>
+                        <strong style={{ fontWeight: 'bold', color: 'red', fontSize: '24px' }}>
+                            Vui lòng đăng nhập lại để cập nhập Premium
+                        </strong>
+                    </p>
                 </div>
                 <button
                     onClick={handleRedirect}

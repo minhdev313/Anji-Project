@@ -1,7 +1,7 @@
 import React from "react";
 import "tailwindcss/tailwind.css";
 import { useSelector } from "react-redux";
-
+import { Link } from "react-router-dom";
 export default function Home() {
   const { currentUser } = useSelector((state) => state.user);
   return (
@@ -154,7 +154,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="mt-8 text-lg font-semibold text-black">Dễ sử dụng</h3>
+                <h3 className="mt-8 text-lg font-semibold text-black">Thao tác đơn giản</h3>
               </div>
 
               <div>
@@ -194,7 +194,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="mt-8 text-lg font-semibold text-black">Lựa Lọc đa dạng</h3>
+                <h3 className="mt-8 text-lg font-semibold text-black">Lựa chọn đa dạng</h3>
               </div>
             </div>
           </div>
@@ -265,13 +265,12 @@ export default function Home() {
                 </p>
 
                 <a
-                  href="#"
+                  href="/"
                   title=""
                   className="inline-flex items-center justify-center px-8 py-3 mt-8 text-base font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700"
                   role="button"
                 >
-                  {" "}
-                  Bắt đầu tim hiểu{" "}
+                  <Link to="/post">Bắt đầu tìm hiểu</Link>
                 </a>
               </div>
             </div>
@@ -337,12 +336,12 @@ export default function Home() {
                 </p>
 
                 <a
-                  href="#"
+                  href="/"
                   title=""
                   className="inline-flex items-center justify-center px-5 py-4 mt-8 text-base font-semibold text-white transition-all duration-200 rounded-md hover:opacity-90 focus:opacity-90 lg:mt-auto bg-gradient-to-r from-fuchsia-600 to-blue-600"
                   role="button"
                 >
-                  Bắt đầu ngay
+                  <Link to="/random">Bắt đầu ngay</Link>
                   <svg
                     className="w-5 h-5 ml-8 -mr-1"
                     xmlns="http://www.w3.org/2000/svg"
