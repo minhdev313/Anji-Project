@@ -9,6 +9,9 @@ import categoryRoutes from "./routes/category.route.js";
 import path from "path";
 import PayOS from "@payos/node";
 import cookieParser from "cookie-parser";
+import cors from "cors";
+
+
 const app = express();
 dotenv.config();
 
@@ -26,11 +29,12 @@ mongoose
 const __dirname = path.resolve();
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 // Routes
-app.use('/payment', express.static('payment/index.html'));
+app.use('/payment', express.static('payment/payment.html'));
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/dishes", dishRoutes);
@@ -55,12 +59,6 @@ app.post('/create-payment-link', async (req, res) => {
         res.send('Something went error');
     }
 });
-
-
-app.post("/receive-hook", async(req, res) => {
-  console.log(req.body);
-  res.json();
-})
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {

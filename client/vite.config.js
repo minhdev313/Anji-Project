@@ -13,12 +13,6 @@ export default defineConfig({
         secure: false,
       },
     },
-    proxy: {
-      "/api": {
-        target: "https://216.24.57.252:443",
-        secure: false,
-      },
-    },
   },
   plugins: [react(), reactRefresh()],
   css: {
