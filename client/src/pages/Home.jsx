@@ -60,7 +60,7 @@ export default function Home() {
                 <>
                   {currentUser.level !== "Premium" ? (
                     <form
-                      action="https://anji-5vgz.onrender.com/payment/?"
+                      action="https://anji-5vgz.onrender.com/payment"
                       style={{
                         background: "#6e8efb",
                         padding: "20px",
