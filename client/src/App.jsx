@@ -22,7 +22,7 @@ import "tailwindcss/tailwind.css";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
