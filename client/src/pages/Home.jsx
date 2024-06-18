@@ -43,7 +43,7 @@ export default function Home() {
             />
 
             <img
-              className="relative w-full md:max-w-5 xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
+              className="w-full max-w-[800px] md:max-w-5xl lg:max-w-lg mx-auto origin-bottom scale-100 sm:scale-100 md:scale-100 lg:scale-100"
               src="https://gcdnb.pbrd.co/images/Jad9wTReM8BA.png"
               alt=""
             />
