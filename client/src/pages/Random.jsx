@@ -174,9 +174,24 @@ export default function Random() {
         {!isPremium && selectionCount >= 5 && (
           <div className="text-center mt-2 text-sm text-gray-600">
             <p className="text-red-600">Bạn đã đạt hạn mức tìm món của ngày</p>
-            <p>
-              <Link to="https://anji-5vgz.onrender.com/payment?">Nâng cấp ngay</Link> .
-            </p>
+            <form action="https://anji-5vgz.onrender.com/payment">
+              <button
+                type="submit"
+                id="create-payment-link-btn"
+                style={{
+                  padding: "10px 20px",
+                  fontSize: "1.25rem",
+                  fontWeight: "600",
+                  color: "#333",
+                  background: "#ffcc00",
+                  borderRadius: "8px",
+                  cursor: "pointer",
+                  transition: "background 0.3s ease-in-out",
+                }}
+              >
+                Nâng cấp ngay
+              </button>
+            </form>
           </div>
         )}
       </form>
