@@ -175,7 +175,7 @@ export default function Random() {
           <div className="text-center mt-2 text-sm text-gray-600">
             <p className="text-red-600">Bạn đã đạt hạn mức tìm món của ngày</p>
             <p>
-              <Link to="https://anji-5vgz.onrender.com/payment/?">Nâng cấp ngay</Link> .
+              <Link to="https://anji-5vgz.onrender.com/payment?">Nâng cấp ngay</Link> .
             </p>
           </div>
         )}
